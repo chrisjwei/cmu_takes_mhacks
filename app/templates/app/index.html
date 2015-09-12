@@ -1,37 +1,19 @@
-{% extends "app/layout.html" %}
-
-{% block content %}
-
-<div class="jumbotron">
-    <h1>Django</h1>
-    <p class="lead">Django is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://www.djangoproject.com/" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+<!DOCTYPE html>
+<html>
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,400italic,700,500' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/static/app/css/stylesheet.css">
+	<link rel="stylesheet" type="text/css" href="/static/app/css/index-stylesheet.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="/static/app/scripts/script.js"></script>
+	<title>NewsBot</title>
+</head>
+<body>
+<div id='main-box' class='centered'>
+	<img src='/static/app/images/logo-black.svg' class=''>
+	<div class ='font-color-accent-dark font-helper-text'>Show me news about...</div>
+	<input id='search-bar' type='text'></input>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            Django gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://www.djangobook.com/en/2.0/index.html">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>The Python Package Index is a repository of software for the Python programming language.</p>
-        <p><a class="btn btn-default" href="https://pypi.python.org/pypi">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Python Tools for Visual Studio</h2>
-        <p>
-            PTVS is a free, open source plugin that turns Visual Studio into a Python IDE 
-            with support for editing, browsing, IntelliSense, Azure remote debugging, 
-            profiling and more.
-        </p>
-        <p><a class="btn btn-default" href="http://pytools.codeplex.com">Learn more &raquo;</a></p>
-    </div>
-</div>
-
-{% endblock %}
+</body>
+</html>
