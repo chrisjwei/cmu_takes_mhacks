@@ -139,7 +139,7 @@ class CategorizeNewsArticle(object):
         self.stop_words_pattern = build_stop_word_regex(stop_words_path)
         pass
 
-    def run(self, text="", max_keywords=6):
+    def run(self, text="", max_keywords=3):
         if text == "":
             text = u"Bryan R. Smith/AP The former mayor took issue with de Blasio\u2019s comment that homelessness rose 40% during the Giuliani administration \u2014 saying that actually the shelter population rose only 32%.\n\nIt all depends on what you mean by \u201chomeless.\u201d\n\nRudy Giuliani, defending his City Hall record in an ongoing spat with Mayor de Blasio, said Friday shelter residents don\u2019t count as homeless \u2014 a definition that would surprise the Department of Homeless Services.\n\nThe former mayor took issue with de Blasio\u2019s comment that homelessness rose 40% during the Giuliani administration \u2014 saying that actually the shelter population rose only 32%.\n\n\u201cHere's how ignorant Mayor de Blasio is ... people who are in shelters, I would like to inform the mayor, are not homeless,\u201d said Giuliani in an interview on \u201cGood Day New York\u201d before going to the 9/11 Memorial.\n\nSpencer Platt/Getty Images 'Here's how ignorant Mayor de Blasio is ... people who are in shelters, I would like to inform the mayor, are not homeless,' said Rudy Giuliani in an interview.\n\nA spokeswoman for the mayor said name-calling on the 9/11 anniversaries was \u201cinappropriate\u201d and declined further comment.\n\nHomeless advocates were incensed. \u201cOf course people in homeless shelters are homeless,\u201d said Jennifer Flynn of Vocal-NY."
         try: 
