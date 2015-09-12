@@ -29,7 +29,6 @@ class FeedContent:
   # return list of urls to parse
   def getSearchResults(self): 
     full_url = self.url + "&%s" % self.encodedParams
-    print full_url
     response = requests.get(full_url)
     data = json.loads(response.text)
     self.rawData = data["responseData"]["results"]
@@ -48,19 +47,26 @@ class FeedContent:
         try: articleContent["article"]["image"] = article["image"]
         except: articleContent["article"]["image"] = None
         articleText = articleContent["article"]["text"]
+
+        # minor preprocessing to clean up around encodings, meta data, and miscellaneous titles
+
+        articleText = articleText.encode('ascii', 'ignore')
+        articleText = articleText.replace('\n',' ')
+        articleText = re.sub('\{[^>]+\}',"",articleText)
+        articleText = re.sub('\{\*[^>]+\*\}',"",articleText)
+        articleText = articleText.replace('&amp;','&')
+        articleText = articleText.replace('&quot;','\"')
+        articleText = articleText.replace('&apos;','\'')
+        articleText = articleText.replace('&gt;','>')
+        articleText = articleText.replace('&lt;','<')
+        
+        spamWords = {'Share Pin It ', 'More Galleries ', 'ADVERTISEMENT '}
+        # phrases like posted on removed elsewhere
+        for word in spamWords:
+          articleText = articleText.replace(word,'')
+        
         if len(articleText.split()) > 100:
           articleContent["summary"] = self.summarizer.summarize(articleText,self.summary_len)
-          # try:
-          #   articleClean = articleText.replace('\n',' ')
-          #   articleClean = articleClean.encode('ascii', 'ignore')
-          #   return articleClean
-          #   keywords = keywords.keywords(articleClean)
-          #   articleContent["keywords"] = [1] + keywords.split('\n')
-          # except:
-          #   keywords = self.categorizer.run(articleText)
-          #   articleContent["keywords"] = [2] 
-          #   for kw in keywords:
-          #     articleContent["keywords"] += kw.split('\n')
           articleContent["keywords"] = [] 
           try:
             keywords = self.categorizer.run(articleText)
