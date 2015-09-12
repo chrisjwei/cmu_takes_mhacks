@@ -1,4 +1,4 @@
-import json, requests
+import json, requests, urllib
 from parse import *
 from summarize import *
 from categorize.get_keywords import *
@@ -11,6 +11,8 @@ class FeedContent:
     self.summary_len = sum_len
     self.summarizer = FrequencySummarizer()
     self.categorizer = CategorizeNewsArticle()
+
+    self.keywords = keywords
     ## loop through params,  and make separate calls, update same obj.
     self.encodeParams() 
     # search terms
@@ -18,14 +20,13 @@ class FeedContent:
     self.getContent()
     pass
 
-  def encodeParams(self): 
-    # pass look keywords
-    self.encodedParams = "homeless"
+  def encodeParams(self):
+    # self.encodedParams = urllib.request.quote(self.keywords)
+    self.encodedParams = str(self.keywords)
     return 
 
   # return list of urls to parse
   def getSearchResults(self): 
-    pass
     full_url = self.url + "&q=%s" % self.encodedParams
     response = requests.get(full_url)
     data = json.loads(response.text)
@@ -35,20 +36,19 @@ class FeedContent:
     for article in self.rawData:
       articleContent = {}
       url = article[u'unescapedUrl']
-      parser = ParseArticle(url)
-      articleContent["article"] = parser.getArticleData()
-      try: articleContent["article"]["language"] = article["language"]
-      except: articleContent["article"]["language"] = None
-      try: articleContent["article"]["location"] = article["location"]
-      except: articleContent["article"]["location"] = None
-      try: articleContent["article"]["image"] = article["image"]
-      except: articleContent["article"]["image"] = None
-      articleText = articleContent["article"]["text"]
-
-      articleContent["summary"] = self.summarizer.summarize(articleText,self.summary_len)
-
-      articleContent["keywords"] = self.categorizer.run(articleText)
-      self.articles.append(articleContent)
+      if "forbes" not in url:
+        parser = ParseArticle(url)
+        articleContent["article"] = parser.getArticleData()
+        try: articleContent["article"]["language"] = article["language"]
+        except: articleContent["article"]["language"] = None
+        try: articleContent["article"]["location"] = article["location"]
+        except: articleContent["article"]["location"] = None
+        try: articleContent["article"]["image"] = article["image"]
+        except: articleContent["article"]["image"] = None
+        articleText = articleContent["article"]["text"]
+        articleContent["summary"] = self.summarizer.summarize(articleText,self.summary_len)
+        articleContent["keywords"] = self.categorizer.run(articleText)
+        self.articles.append(articleContent)
     return
 
   def getContent(self):
