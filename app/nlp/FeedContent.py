@@ -64,20 +64,7 @@ class FeedContent:
         # phrases like posted on removed elsewhere
         for word in spamWords:
           articleText = articleText.replace(word,'')
-        return articleText
         
-
-
-
-
-
-
-
-
-
-
-
-
         if len(articleText.split()) > 100:
           articleContent["summary"] = self.summarizer.summarize(articleText,self.summary_len)
           articleContent["keywords"] = [] 
