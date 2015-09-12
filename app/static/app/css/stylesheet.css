@@ -9,6 +9,16 @@ input {
   border: none;
   background: transparent;
 }
+
+ul {
+	list-style-type: none;
+  margin: 0;
+  padding: 0; 
+}
+
+a {
+	text-decoration: none;
+}
 /* the standard ui */
 
 .centered{
@@ -49,4 +59,9 @@ input {
 	padding:4px;
 	font-size: 12px;
 	font-weight: 300;
+}
+
+.font-text-standard{
+	font-size: 12px;
+	font-weight: 400;
 }
