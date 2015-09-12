@@ -14,13 +14,25 @@
 <div id='main-box' class='centered'>
 	<img src='/static/app/images/logo-dark.svg'>
 	<div class ='font-color-accent-dark font-helper-text'>Show me news about...</div>
-	<select class="selector">
+	<select name="charity" form="submit-charity" id="org-selector" class="selector">
 		<option value="" default selected></option>
 		{% for charity in charityList %}
 	  		<option value="{{charity}}">{{charity}}</option>
 	  	{% endfor %}
 	</select>
-</div>
+	<form action="/newsfeed" id="submit-charity">
+  		<input type="submit">
+	</form>
 
+	<script type="text/javascript">
+		var sendGet = function() {
+			var charity = $( "#org-selector option:selected" ).val()
+			console.log(charity)
+			$.ajax({
+  				url: '/newsfeed',
+  				data: {'charity' : charity}
+			});
+		}
+	</script>
 </body>
 </html>

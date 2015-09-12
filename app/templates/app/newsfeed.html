@@ -16,11 +16,10 @@
 </div>
 <div class='container'>
 	<div class='robot'>
-		<img class='robot-left' src='/static/app/images/robot-dark.svg' style='width:25%;padding-right:5px'>
+		<img class='robot-left' src='/static/app/images/robot-dark.svg'>
 		<div class='robot-right'>
-			<textarea readonly id='robot-output' class='robot-speech-bubble font-text-light'>
-Hello there, what can I do for you?
-			</textarea>
+			<textarea readonly id='robot-output' class='robot-speech-bubble font-text-light'>> Hello there, what can I do for you?
+</textarea>
 		</div>
 		<form onsubmit="readInput();return false;">
 	  	<input id='robot-input' type="text" name="message" placeholder='hello'><br>
@@ -31,11 +30,19 @@ Hello there, what can I do for you?
 			{% for article_object in articles %}
 			<li class='article'>
 				<div class='article-header'>
-					<a href='{{article_object.article.url}}' class='article-title'>{{article_object.article.title}}</a>
+					<a href='{{article_object.article.url}}' target="_blank" class='article-title'>{{article_object.article.title}}</a>
 					<div class='article-timestamp'>{{article_object.article.publish_date}}</div>
 				</div>
-				<div class='article-summary'>{{article_object.summary}}</div>
-				<div class='article-keyword'> (keyword) </div>
+				<div class='article-summary'>
+				{% for sentance in article_object.summary %}
+					{{sentance}}
+				{% endfor %}
+				</div>
+				<div class='article-keyword'> 
+				{% for keyword in article_object.keywords %} 
+					{{keyword}},
+				{% endfor %}
+				</div>
 			</li>
 			{% endfor %}
 		</ul>

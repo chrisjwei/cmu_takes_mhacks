@@ -1,7 +1,22 @@
+$(window).scroll(function() {
+	var scrollTop = $(this).scrollTop();
+	var newTop = Math.max(scrollTop,50)
+	var currTop = $('.robot').position().top;
+	var time = 50;
+	$('.robot').animate({ top: newTop }, time);
+});
+
+
+function updateScrollLocation(){
+	$('#robot-output').scrollTop($('#robot-output')[0].scrollHeight);
+}
+
 function readInput(){
 	var inputMsg = $('#robot-input').val();
 	$('#robot-input').val('');
+	$('#robot-output').append(inputMsg + '\n');
 	parseInput(inputMsg);
+	updateScrollLocation();
 }
 
 function parseInput(msg){
@@ -80,18 +95,18 @@ function execute(commandType,keyword){
 	var output = $('#robot-output');
 	switch(commandType){
 		case 0:
-			output.html("I don't understand your command :(");
+			output.append("> I don't understand your command :(\n");
 			break;
 		case 1:
-			output.html("Fetching new stories for you");
+			output.append("> Fetching new stories for you\n");
 			refresh();
 			break;
 		case 2:
-			output.html("Applying filter: " + keyword);
+			output.append("> Applying filter: " + keyword + '\n');
 			applyFilter(keyword);
 			break;
 		case 3:
-			output.html("Removing filter: " + keyword);
+			output.append("> Removing filter: " + keyword + '\n');
 			removeFilter(keyword);
 			break;
 		default: throw 'Unsupported commandType';
