@@ -14,7 +14,6 @@ body{
 }
 
 .robot{
-	height:200px;
 	width: 340px;
 	background-color: #F3E8EE;
 	margin-top:5px;
@@ -42,6 +41,18 @@ body{
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
 	border-bottom-right-radius:10px;
+	height:100px;
+	width:230px;
+	resize: none;
+}
+
+#robot-input{
+	width:228px;
+	padding:10px;
+	background-color: white;
+	border: solid;
+	border-width: 1px;
+	border-color:#A0A0A0;
 }
 
 .newsfeed{
