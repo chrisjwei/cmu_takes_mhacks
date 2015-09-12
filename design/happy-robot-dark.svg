@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="46px" height="80px" viewBox="0 0 46 80" enable-background="new 0 0 46 80" xml:space="preserve">
+<g>
+	<rect x="4" y="18" fill="#0B132B" width="36" height="2"/>
+</g>
+<defs>
+	<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="4" y="0" width="38" height="20">
+		<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+	</filter>
+</defs>
+<mask maskUnits="userSpaceOnUse" x="4" y="0" width="38" height="20" id="SVGID_1_">
+	<g filter="url(#Adobe_OpacityMaskFilter)">
+		<rect y="-3" fill="#FFFFFF" width="48" height="24"/>
+		<rect x="12" y="10" width="2" height="8"/>
+		<rect x="16" y="6" width="10" height="6"/>
+		<rect x="16" y="14" width="12" height="4"/>
+		<polygon points="30,10 30,12 28,12 28,8 32,8 32,10 		"/>
+		<rect x="32" y="12" width="4" height="6"/>
+	</g>
+</mask>
+<g mask="url(#SVGID_1_)">
+	<path fill="#0B132B" d="M42,20H4v-1C4,8.523,12.523,0,23,0s19,8.523,19,19V20z"/>
+</g>
+<g>
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter_1_" filterUnits="userSpaceOnUse" x="4" y="18" width="38" height="48">
+			<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="4" y="18" width="38" height="48" id="SVGID_2_">
+		<g filter="url(#Adobe_OpacityMaskFilter_1_)">
+			<rect y="16" fill="#FFFFFF" width="46" height="52"/>
+			<rect x="2" y="56" width="4" height="6"/>
+			<rect x="40" y="56" width="4" height="6"/>
+		</g>
+	</mask>
+	<path mask="url(#SVGID_2_)" fill="#0B132B" d="M42,66H4V18h38V66z M6,64h34V20H6V64z"/>
+</g>
+<g>
+	<g>
+		<g>
+			<rect x="10" y="30" fill="#0B132B" width="6" height="12"/>
+		</g>
+		<g>
+			<rect x="10" y="24" fill="#0B132B" width="6" height="2"/>
+		</g>
+	</g>
+	<g>
+		<g>
+			<rect x="28" y="30" fill="#0B132B" width="6" height="12"/>
+		</g>
+		<g>
+			<rect x="28" y="24" fill="#0B132B" width="6" height="2"/>
+		</g>
+	</g>
+</g>
+<g>
+	<path fill="#0B132B" d="M8,64H0V54h8V64z M2,62h4v-6H2V62z"/>
+</g>
+<g>
+	<path fill="#0B132B" d="M46,64h-8V54h8V64z M40,62h4v-6h-4V62z"/>
+</g>
+<g>
+	<path fill="#0B132B" d="M18,76h-6V64h6V76z M14,74h2v-8h-2V74z"/>
+</g>
+<g>
+	<path fill="#0B132B" d="M34,76h-6V64h6V76z M30,74h2v-8h-2V74z"/>
+</g>
+<g>
+	<rect x="20" y="50" fill="#0B132B" width="9" height="2"/>
+</g>
+<g>
+	<path fill="#0B132B" d="M36,80H26v-6h10V80z M28,78h6v-2h-6V78z"/>
+</g>
+<g>
+	<path fill="#0B132B" d="M20,80H10v-6h10V80z M12,78h6v-2h-6V78z"/>
+</g>
+<rect x="29" y="48" fill="#0B132B" width="4" height="2"/>
+</svg>
