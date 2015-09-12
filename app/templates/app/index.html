@@ -5,14 +5,20 @@
 	<link rel="stylesheet" type="text/css" href="/static/app/css/stylesheet.css">
 	<link rel="stylesheet" type="text/css" href="/static/app/css/index-stylesheet.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="/static/app/scripts/script.js"></script>
+	<script src="/static/app/scripts/script-index.js"></script>
+	<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+	<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
 	<title>NewsBot</title>
 </head>
 <body>
 <div id='main-box' class='centered'>
 	<img src='/static/app/images/logo-black.svg' class=''>
 	<div class ='font-color-accent-dark font-helper-text'>Show me news about...</div>
-	<input id='search-bar' type='text'></input>
+	<select class="selector">
+		<option value="" default selected></option>
+	  <option value="2">option one</option>
+	  <option value="3">option two</option>
+	</select>
 </div>
 
 </body>

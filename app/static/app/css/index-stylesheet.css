@@ -4,12 +4,10 @@ body{
 
 #main-box{
 	width:400px;
-	height:120px;
+	height:110px;
 	padding:10px;
 	background-color: #F3E8EE;
-	border-style: solid;
-  border-width: 1px;
-	border-color: white;
+	box-shadow: 3px 3px 0px #E9DEE4, 6px 6px 0px #DFD4DA;
 }
 
 #search-bar{
@@ -19,4 +17,8 @@ body{
   border-width: 1px;
 	border-color: #0B132B;
 	padding:10px;
+}
+
+.selector{
+	width:400px;
 }
