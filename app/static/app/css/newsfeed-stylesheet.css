@@ -6,7 +6,6 @@ body{
   margin-left: auto;
   margin-right: auto;
   width:960px;
-  height:2000px;
 }
 
 .header{
@@ -73,6 +72,10 @@ body{
 	margin-top: 5px;
 }
 
+.read{
+	background-color:#909090 !important;
+}
+
 .article-header{
 	height:22px;
 }
@@ -108,4 +111,16 @@ body{
 	font-weight: 300;
 	color:#5B5B5B;
 	margin-top: 3px;
+}
+
+
+.footer{
+	height:100px;
+	color:#EEEEEE;
+	width:960px;
+	font-size:12px;
+	font-weight:300;
+	display:inline-block;
+	padding-top:40px;
+	clear:both;
 }

@@ -14,14 +14,16 @@
 <div id='main-box' class='centered'>
 	<img src='/static/app/images/logo-dark.svg'>
 	<div class ='font-color-accent-dark font-helper-text'>Show me news about...</div>
-	<select name="charity" form="submit-charity" id="org-selector" class="selector">
-		<option value="" default selected></option>
-		{% for charity in charityList %}
-	  		<option value="{{charity}}">{{charity}}</option>
-	  	{% endfor %}
-	</select>
+	<div class='select-wrapper'>
+		<select name="charity" form="submit-charity" id="org-selector" class="selector">
+			<option value="" default selected></option>
+			{% for charity in charityList %}
+		  		<option value="{{charity}}">{{charity}}</option>
+		  	{% endfor %}
+		</select>
+	</div>
 	<form action="/newsfeed" id="submit-charity">
-  		<input type="submit">
+  		<input type="submit" value="SUBMIT">
 	</form>
 
 	<script type="text/javascript">
