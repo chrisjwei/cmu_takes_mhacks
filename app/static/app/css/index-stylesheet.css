@@ -6,16 +6,17 @@ body{
 	width:400px;
 	height:120px;
 	padding:10px;
+	background-color: #F3E8EE;
 	border-style: solid;
   border-width: 1px;
 	border-color: white;
 }
 
 #search-bar{
-	width: 360px;
-	color: white;
+	width: 378px;
+	color: #0B132B;
 	border-style: solid;
   border-width: 1px;
-	border-color: white;
+	border-color: #0B132B;
 	padding:10px;
 }

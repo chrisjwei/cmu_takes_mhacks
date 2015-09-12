@@ -14,6 +14,11 @@ input {
 .centered{
 	margin-left: auto;
 	margin-right: auto;
+	display: block;
+}
+
+.hidden{
+	display: none;
 }
 
 
@@ -36,6 +41,12 @@ input {
 }
 
 .font-title-light{
-	font-size: 32;
+	font-size: 18px;
+	font-weight: 300;
+}
+
+.font-helper-text{
+	padding:4px;
+	font-size: 12px;
 	font-weight: 300;
 }
