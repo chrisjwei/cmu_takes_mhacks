@@ -6,6 +6,12 @@ $(window).scroll(function() {
 	$('.robot').animate({ top: newTop }, time);
 });
 
+$( document ).ready(function() {
+	$("a.article-title").click(function() {
+		$(this).parent().parent().addClass("read");
+	});
+});
+
 
 function updateScrollLocation(){
 	$('#robot-output').scrollTop($('#robot-output')[0].scrollHeight);
