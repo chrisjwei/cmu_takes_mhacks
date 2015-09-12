@@ -2,6 +2,7 @@
 Definition of views.
 """
 import sys
+import json
 from django.shortcuts import render
 from django.http import HttpRequest
 from django.template import RequestContext
@@ -14,9 +15,10 @@ def home(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
     charities = []
-    with open('app/data/charities.txt','r') as f:
-    	for line in f:
-    		charities.append(line.rstrip());
+    with open('app/data/charities.json') as data_file:    
+    	charities_obj = json.load(data_file)
+    for key in charities_obj:
+    	charities.append(key);
     context = {'charityList': charities}
     return render(
         request,
