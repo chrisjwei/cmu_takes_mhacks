@@ -16,8 +16,9 @@
 	<div class ='font-color-accent-dark font-helper-text'>Show me news about...</div>
 	<select class="selector">
 		<option value="" default selected></option>
-	  <option value="2">option one</option>
-	  <option value="3">option two</option>
+		{% for charity in charityList %}
+	  		<option value="{{charity}}">{{charity}}</option>
+	  	{% endfor %}
 	</select>
 </div>
 

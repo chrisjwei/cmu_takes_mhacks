@@ -7,7 +7,7 @@ def getFeedContent():
                 },
                 'article':{
                   'title':'title1',
-                  'url':'url1',
+                  'url':'',
                   'author':['author11','author12'],
                   'publish_date':'date1',
                   'location':'geography1',
@@ -23,7 +23,7 @@ def getFeedContent():
                 },
                 'article':{
                   'title':'title2',
-                  'url':'url2',
+                  'url':'',
                   'author':['author21','author22'],
                   'publish_date':'date2',
                   'location':'geography2',
@@ -39,7 +39,7 @@ def getFeedContent():
                 },
                 'article':{
                   'title':'title3',
-                  'url':'url3',
+                  'url':'',
                   'author':['author31','author32'],
                   'publish_date':'date3',
                   'location':'geography3',

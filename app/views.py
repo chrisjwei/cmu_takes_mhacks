@@ -17,19 +17,19 @@ def home(request):
     with open('app/data/charities.txt','r') as f:
     	for line in f:
     		charities.append(line.rstrip());
-    print charities
+    context = {'charityList': charities}
     return render(
         request,
-        'app/index.html')
+        'app/index.html', context)
     
 
 def newsfeed(request):
     """Renders the newsfeed page."""
     assert isinstance(request, HttpRequest)
-    artcles = getFeedContent()
+    articles = getFeedContent()
     return render(
         request,
-        'app/newsfeed.html')
+        'app/newsfeed.html', articles)
 
 def about(request):
     """Renders the about page."""

@@ -12,11 +12,13 @@
 	<div class='bot'>Bot</div>
 	<div class='newsfeed'>
 		<ul>
+			{% for article_object in articles %}
 			<li class='article'>
-				<a href='{{url}}' class='article-title'>the title{{title}}</a>
-				<div class='article-timestamp'>timestamp {{timestamp}}</div>
-				<div class='article-summary'>{{summary} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dapibus nunc sollicitudin ullamcorper efficitur. Pellentesque sed quam dictum dui lobortis tincidunt at eu turpis. Ut nec arcu lorem. Nam eget tortor leo. Aenean eget tortor nec quam volutpat consequat a ut lorem. Integer sollicitudin vehicula elit id imperdiet. Nunc consectetur dolor fringilla erat facilisis, eget ultricies libero sagittis. Pellentesque ornare ante eu nulla fringilla, ac imperdiet tellus hendrerit. Quisque ut sagittis neque.</div>
+				<a href='{{article_object.article.url}}' class='article-title'>{{article_object.article.title}}</a>
+				<div class='article-timestamp'>{{article_object.article.publish_date}}</div>
+				<div class='article-summary'>{{article_object.summary}}</div>
 			</li>
+			{% endfor %}
 		</ul>
 	</div>
 </div>
