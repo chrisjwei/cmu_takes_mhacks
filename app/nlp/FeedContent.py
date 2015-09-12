@@ -5,7 +5,7 @@ from categorize.get_keywords import *
 class FeedContent:
   def __init__(self,sum_len=2):
     self.summary_len = sum_len
-    self.summarizer = FrequencySummarizer("SmartStoplist.txt")
+    self.summarizer = FrequencySummarizer()
     self.categorizer = CategorizeNewsArticle()
     # search terms
     #self.getSearchResults()

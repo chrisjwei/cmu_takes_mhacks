@@ -43,8 +43,12 @@ class FrequencySummarizer:
       Return a list of n sentences 
       which represent the summary of text.
     """
+    try:
+      text = text.encode('ascii', 'ignore')
+      text.replace('\n','')
+    except: pass
     sents = sent_tokenize(text)
-    assert n <= len(sents)
+    n = min(len(sents),n)
     word_sent = [word_tokenize(s.lower()) for s in sents]
     self._freq = self._compute_frequencies(word_sent)
     ranking = defaultdict(int)
@@ -52,7 +56,7 @@ class FrequencySummarizer:
       for w in sent:
         if w in self._freq:
           ranking[i] += self._freq[w]
-    sents_idx = self._rank(ranking, n)    
+    sents_idx = self._rank(ranking, n)  
     return [sents[j] for j in sents_idx]
 
   def _rank(self, ranking, n):
