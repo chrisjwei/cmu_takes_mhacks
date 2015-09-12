@@ -55,6 +55,11 @@ a {
 	font-weight: 300;
 }
 
+.font-text-light{
+	font-size: 12px;
+	font-weight: 300;
+}
+
 .font-helper-text{
 	padding:4px;
 	font-size: 12px;
