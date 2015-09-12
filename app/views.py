@@ -4,12 +4,13 @@ Definition of views.
 import sys
 import json
 from django.shortcuts import render
+from django.shortcuts import redirect
 from django.http import HttpRequest
 from django.template import RequestContext
 from datetime import datetime
 
 sys.path.insert(0, 'app/nlp/')
-import getFeedContent
+from FeedContent import *
 
 def home(request):
     """Renders the home page."""
@@ -28,10 +29,19 @@ def home(request):
 def newsfeed(request):
     """Renders the newsfeed page."""
     assert isinstance(request, HttpRequest)
-    articles = getFeedContent()
+    charity = request.GET.get('charity', False)
+    if (charity):
+    	request.session['charity'] = charity
+    else:
+    	return redirect('/');
+
+
+    articles = FeedContent(charity)
+    articles.processContent()
+    content = articles.getContent()
     return render(
         request,
-        'app/newsfeed.html', articles)
+        'app/newsfeed.html', content)
 
 def about(request):
     """Renders the about page."""
@@ -46,56 +56,3 @@ def about(request):
             'year':datetime.now().year,
         })
     )
-
-def getFeedContent():
-  sampleObj = {'articles':[
-              {
-                'meta_data':{
-                  'matched_keywords':['keyword11','keyword12']
-                  
-                },
-                'article':{
-                  'title':'title1',
-                  'url':'url1',
-                  'author':['author11','author12'],
-                  'publish_date':'date1',
-                  'location':'geography1',
-                  'text':'text1'
-                },
-                'summary':'summary of article1',
-                'keywords':['keyword11','keyword12']
-              },
-              {
-                'meta_data':{
-                  'matched_keywords':['keyword21','keyword22']
-                  
-                },
-                'article':{
-                  'title':'title2',
-                  'url':'url2',
-                  'author':['author21','author22'],
-                  'publish_date':'date2',
-                  'location':'geography2',
-                  'text':'text2'
-                },
-                'summary':'summary of article2',
-                'keywords':['keyword21','keyword22']
-              },
-              {
-                'meta_data':{
-                  'matched_keywords':['keyword31','keyword32']
-                  
-                },
-                'article':{
-                  'title':'title3',
-                  'url':'url3',
-                  'author':['author31','author32'],
-                  'publish_date':'date3',
-                  'location':'geography3',
-                  'text':'text3'
-                },
-                'summary':'summary of article3',
-                'keywords':['keyword31','keyword32']
-              }]
-          }
-  return sampleObj
