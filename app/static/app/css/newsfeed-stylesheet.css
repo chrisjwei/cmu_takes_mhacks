@@ -6,6 +6,7 @@ body{
   margin-left: auto;
   margin-right: auto;
   width:960px;
+  height:2000px;
 }
 
 .header{
@@ -20,6 +21,7 @@ body{
 	float:left;
 	display:inline-block;
 	padding:10px;
+	position:absolute;
 }
 
 .robot-right{
@@ -29,8 +31,10 @@ body{
 }
 
 .robot-left{
-	width:90px;
+	width:70px;
 	float:left;
+	margin-left:5px;
+	margin-top: 40px;
 	display:inline-block;
 }
 
@@ -53,6 +57,8 @@ body{
 	border: solid;
 	border-width: 1px;
 	border-color:#A0A0A0;
+	display: inline-block;
+	float:right;
 }
 
 .newsfeed{
