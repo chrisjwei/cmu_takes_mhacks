@@ -11,6 +11,7 @@ class ParseArticle:
     article.parse()
 
     articleData = {}
+    articleData["url"] = self.url
     articleData["title"] = article.title
     articleData["authors"] = article.authors  # list
     articleData["publish_data"] = article.publish_date  # date obj?

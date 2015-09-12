@@ -133,7 +133,7 @@ def generate_candidate_keyword_scores(phrase_list, word_score):
     return keyword_candidates
 
 
-class ParseNewsArticle(object):
+class CategorizeNewsArticle(object):
     def __init__(self, stop_words_path="SmartStoplist.txt"):
         self.stop_words_path = stop_words_path
         self.stop_words_pattern = build_stop_word_regex(stop_words_path)
@@ -162,6 +162,8 @@ class ParseNewsArticle(object):
         
         total_keywords = len(sorted_keywords)
         show_keywords = min(total_keywords/3,max_keywords)
-        return sorted_keywords[0:show_keywords]
-
+        final_keywords = []
+        for keyword in sorted_keywords[0:show_keywords]:
+            final_keywords.append(keyword[0])
+        return final_keywords
 
