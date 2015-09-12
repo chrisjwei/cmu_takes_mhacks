@@ -5,18 +5,35 @@
 	<link rel="stylesheet" type="text/css" href="/static/app/css/stylesheet.css">
 	<link rel="stylesheet" type="text/css" href="/static/app/css/newsfeed-stylesheet.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="/static/app/scripts/script-newsfeed.js"></script>
 	<title>NewsBot - News Feed</title>
 </head>
 <body>
+<div class='header'>
+	<div class='container'>
+		<a href='/'><img src='/static/app/images/logo-dark.svg'></a>
+	</div>
+</div>
 <div class='container'>
-	<div class='bot'>Bot</div>
+	<div class='robot'>
+		<img class='robot-left' src=''>
+		<div class='robot-right'>
+			<div id='robot-output' class='robot-speech-bubble font-text-light'> > Hello there, what can I do for you?</div>
+			<form onsubmit="readInput();return false;">
+		  	<input id='robot-input' type="text" name="message" placeholder='hello'><br>
+		  </form>
+		</div>
+	</div>
 	<div class='newsfeed'>
 		<ul>
 			{% for article_object in articles %}
 			<li class='article'>
-				<a href='{{article_object.article.url}}' class='article-title'>{{article_object.article.title}}</a>
-				<div class='article-timestamp'>{{article_object.article.publish_date}}</div>
+				<div class='article-header'>
+					<a href='{{article_object.article.url}}' class='article-title'>{{article_object.article.title}}</a>
+					<div class='article-timestamp'>{{article_object.article.publish_date}}</div>
+				</div>
 				<div class='article-summary'>{{article_object.summary}}</div>
+				<div class='article-keyword'> (keyword) </div>
 			</li>
 			{% endfor %}
 		</ul>
