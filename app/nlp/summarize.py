@@ -45,7 +45,7 @@ class FrequencySummarizer:
     """
     try:
       text = text.encode('ascii', 'ignore')
-      text.replace('\n',' ')
+      text = text.replace('\n',' ')
     except: pass
     sents = sent_tokenize(text)
     n = min(len(sents),n)
