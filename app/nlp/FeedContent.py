@@ -1,5 +1,4 @@
 import json, requests, urllib
-from summa import keywords
 from parse import *
 from summarize import *
 from categorize.get_keywords import *
