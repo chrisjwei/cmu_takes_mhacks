@@ -60,6 +60,9 @@ class FeedContent:
         articleText = articleText.replace('&gt;','>')
         articleText = articleText.replace('&lt;','<')
         
+        articleText = articleText.replace(articleContent["article"]["title"] + " ",'')
+        articleText = re.sub('Posted:.*?EDT ','',articleText, flags=re.DOTALL)
+        articleText = re.sub('Updated:.*?EDT ','',articleText, flags=re.DOTALL)
         spamWords = {'Share Pin It ', 'More Galleries ', 'ADVERTISEMENT '}
         # phrases like posted on removed elsewhere
         for word in spamWords:
