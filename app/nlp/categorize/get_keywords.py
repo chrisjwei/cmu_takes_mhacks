@@ -1,3 +1,5 @@
+# modified RAKE for our purposes
+
 # Implementation of RAKE - Rapid Automtic Keyword Exraction algorithm
 # as described in:
 # Rose, S., D. Engel, N. Cramer, and W. Cowley (2010). 
@@ -8,7 +10,7 @@ import re
 import operator
 
 debug = False
-test = True
+example = False
 
 
 def is_number(s):
@@ -80,6 +82,18 @@ def generate_candidate_keywords(sentence_list, stopword_pattern):
                 phrase_list.append(phrase)
     return phrase_list
 
+def get_concise_keywords(fullPhraseList):
+    # limit to 2 word keywords
+    shortPhrase = []
+    checkUnique = set()
+    for phrase in fullPhraseList:
+        if phrase.count(' ') < 2: 
+            words = set(phrase.split())
+            if words & checkUnique == set(): 
+              # if some words overlap, dont add others; will under count
+              checkUnique |= words
+              shortPhrase.append(phrase)
+    return shortPhrase
 
 def calculate_word_scores(phraseList):
     word_frequency = {}
@@ -119,50 +133,35 @@ def generate_candidate_keyword_scores(phrase_list, word_score):
     return keyword_candidates
 
 
-class Rake(object):
-    def __init__(self, stop_words_path):
+class ParseNewsArticle(object):
+    def __init__(self, stop_words_path="SmartStoplist.txt"):
         self.stop_words_path = stop_words_path
-        self.__stop_words_pattern = build_stop_word_regex(stop_words_path)
+        self.stop_words_pattern = build_stop_word_regex(stop_words_path)
+        pass
 
-    def run(self, text):
+    def run(self, text="", max_keywords=6):
+        if text == "":
+            text = u"Bryan R. Smith/AP The former mayor took issue with de Blasio\u2019s comment that homelessness rose 40% during the Giuliani administration \u2014 saying that actually the shelter population rose only 32%.\n\nIt all depends on what you mean by \u201chomeless.\u201d\n\nRudy Giuliani, defending his City Hall record in an ongoing spat with Mayor de Blasio, said Friday shelter residents don\u2019t count as homeless \u2014 a definition that would surprise the Department of Homeless Services.\n\nThe former mayor took issue with de Blasio\u2019s comment that homelessness rose 40% during the Giuliani administration \u2014 saying that actually the shelter population rose only 32%.\n\n\u201cHere's how ignorant Mayor de Blasio is ... people who are in shelters, I would like to inform the mayor, are not homeless,\u201d said Giuliani in an interview on \u201cGood Day New York\u201d before going to the 9/11 Memorial.\n\nSpencer Platt/Getty Images 'Here's how ignorant Mayor de Blasio is ... people who are in shelters, I would like to inform the mayor, are not homeless,' said Rudy Giuliani in an interview.\n\nA spokeswoman for the mayor said name-calling on the 9/11 anniversaries was \u201cinappropriate\u201d and declined further comment.\n\nHomeless advocates were incensed. \u201cOf course people in homeless shelters are homeless,\u201d said Jennifer Flynn of Vocal-NY."
+        try: 
+            text = text.encode('ascii', 'ignore')
+            text.replace('\n','')
+        except:
+            pass
+
         sentence_list = split_sentences(text)
 
-        phrase_list = generate_candidate_keywords(sentence_list, self.__stop_words_pattern)
+        full_phrase_list = generate_candidate_keywords(sentence_list, self.stop_words_pattern)
+
+        phrase_list = get_concise_keywords(full_phrase_list)
 
         word_scores = calculate_word_scores(phrase_list)
 
         keyword_candidates = generate_candidate_keyword_scores(phrase_list, word_scores)
 
         sorted_keywords = sorted(keyword_candidates.iteritems(), key=operator.itemgetter(1), reverse=True)
-        return sorted_keywords
+        
+        total_keywords = len(sorted_keywords)
+        show_keywords = min(total_keywords/3,max_keywords)
+        return sorted_keywords[0:show_keywords]
 
 
-if test:
-    text = "Compatibility of systems of linear constraints over the set of natural numbers. Criteria of compatibility of a system of linear Diophantine equations, strict inequations, and nonstrict inequations are considered. Upper bounds for components of a minimal set of solutions and algorithms of construction of minimal generating sets of solutions for all types of systems are given. These criteria and the corresponding algorithms for constructing a minimal supporting set of solutions can be used in solving all the considered types of systems and systems of mixed types."
-
-    # Split text into sentences
-    sentenceList = split_sentences(text)
-    #stoppath = "FoxStoplist.txt" #Fox stoplist contains "numbers", so it will not find "natural numbers" like in Table 1.1
-    stoppath = "SmartStoplist.txt"  #SMART stoplist misses some of the lower-scoring keywords in Figure 1.5, which means that the top 1/3 cuts off one of the 4.0 score words in Table 1.1
-    stopwordpattern = build_stop_word_regex(stoppath)
-
-    # generate candidate keywords
-    phraseList = generate_candidate_keywords(sentenceList, stopwordpattern)
-
-    # calculate individual word scores
-    wordscores = calculate_word_scores(phraseList)
-
-    # generate candidate keyword scores
-    keywordcandidates = generate_candidate_keyword_scores(phraseList, wordscores)
-    if debug: print keywordcandidates
-
-    sortedKeywords = sorted(keywordcandidates.iteritems(), key=operator.itemgetter(1), reverse=True)
-    if debug: print sortedKeywords
-
-    totalKeywords = len(sortedKeywords)
-    if debug: print totalKeywords
-    print sortedKeywords[0:(totalKeywords / 3)]
-
-    rake = Rake("SmartStoplist.txt")
-    keywords = rake.run(text)
-    print keywords
