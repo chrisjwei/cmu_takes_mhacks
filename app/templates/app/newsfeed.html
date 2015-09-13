@@ -31,7 +31,6 @@
 			<li class='article'>
 				<div class='article-header'>
 					<a href='{{article_object.article.url}}' target="_blank" class='article-title'>{{article_object.article.title}}</a>
-					<div class='article-timestamp'>{{article_object.article.publish_date}}</div>
 				</div>
 				<div class='article-summary'>
 				{% for sentance in article_object.summary %}
@@ -39,6 +38,7 @@
 				{% endfor %}
 				</div>
 				<div class='article-keyword'> 
+				({{article_object.article.publish_date}}) -
 				{% for keyword in article_object.keywords %} 
 					{{keyword}},
 				{% endfor %}
