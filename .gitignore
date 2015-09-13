@@ -1,3 +1,5 @@
+secret.js
+
 # Python cache
 __pycache__/
 *.pyc

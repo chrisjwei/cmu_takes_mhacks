@@ -12,6 +12,9 @@ $( document ).ready(function() {
 	});
 });
 
+$.ajaxSetup({
+   contentType: "application/json; charset=utf-8"
+});
 
 function updateScrollLocation(){
 	$('#robot-output').scrollTop($('#robot-output')[0].scrollHeight);
@@ -20,8 +23,148 @@ function updateScrollLocation(){
 function readInput(){
 	var inputMsg = $('#robot-input').val();
 	$('#robot-input').val('');
-	parseInput(inputMsg);
+	//parseInput(inputMsg);
+	mlParseInput(inputMsg);
 }
+
+function mlParseInput(msg){
+	var token;
+	msg = cleanMsg(msg);
+	var arr = msg.split(" ");
+	var tokens = ["label", "giggles", "filtering", "information", "is", "results", "related", "Content", "have", "data", "information", "hackathons", "no", "friends", "update", "undo", "content", "to", "hi", "news", "articles", "on", "i", "refresh", "hey", "reload", "stories", "remove", "new", "news", "with", "hello", "delete", "articles", "about", "tired", "of", "get", "bot", "filter", "erase", "charlie", "where"];
+	var flags = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+	for (var i = 0; i < tokens.length; i++){
+		token = tokens[i];
+		if (arr.indexOf(token) != -1){
+			flags[i] = 1;
+		}
+	}
+	var postData = {
+  Inputs: {
+    input1: {
+      ColumnNames: [
+        "label",
+        "giggles",
+        "filtering",
+        "Information",
+        "is",
+        "results",
+        "related",
+        "Content",
+        "have",
+        "data",
+        "information",
+        "hackathons",
+        "no",
+        "friends",
+        "Update",
+        "Undo",
+        "content",
+        "to",
+        "Hi",
+        "News",
+        "Articles",
+        "on",
+        "I",
+        "Refresh",
+        "Hey",
+        "Reload",
+        "Stories",
+        "Remove",
+        "new",
+        "news",
+        "with",
+        "Hello",
+        "Delete",
+        "articles",
+        "about",
+        "Tired",
+        "of",
+        "Get",
+        "bot",
+        "filter",
+        "Erase",
+        "charlie",
+        "where"
+      ],
+      Values: [
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    }
+  },
+  GlobalParameters: {}
+};
+	var request = new XMLHttpRequest();
+	request.onreadystatechange= function () {
+	    if (request.readyState==4) {
+	        console.log(request)
+	    }
+	}
+
+	request.open("POST", secret, true);
+	request.setRequestHeader("Authorization", "Bearer "+secret2);
+	request.setRequestHeader("Content-Type","application/json");
+	request.setRequestHeader("Accept","application/json");
+	request.send(JSON.stringify(postData));
+
+	/*var commandType = getWhatIWant(jsonCallback); // 0 - unknown command, 1 - refresh, 2 - filter, 3 -remove filter
+	if (commandType == 2 || commandType == 3){
+		keyword = getKeyword(arr);
+	}
+	execute(commandType,keyword);*/
+}
+
+
+
+
+
+
+
+
 
 function parseInput(msg){
 	msg = cleanMsg(msg)
