@@ -23,8 +23,8 @@ function updateScrollLocation(){
 function readInput(){
 	var inputMsg = $('#robot-input').val();
 	$('#robot-input').val('');
-	//parseInput(inputMsg);
-	mlParseInput(inputMsg);
+	parseInput(inputMsg);
+	ParseInput(inputMsg);
 }
 
 function mlParseInput(msg){
@@ -157,13 +157,6 @@ function mlParseInput(msg){
 	}
 	execute(commandType,keyword);*/
 }
-
-
-
-
-
-
-
 
 
 function parseInput(msg){
