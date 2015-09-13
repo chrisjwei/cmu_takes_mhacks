@@ -1,3 +1,4 @@
 django<2
 newspaper
 pymongo
+tldextract
