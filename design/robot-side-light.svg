@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="46px" height="80px" viewBox="0 0 46 80" enable-background="new 0 0 46 80" xml:space="preserve">
+<defs>
+	<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="4" y="0" width="38" height="20">
+		<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+	</filter>
+</defs>
+<mask maskUnits="userSpaceOnUse" x="4" y="0" width="38" height="20" id="SVGID_1_">
+	<g filter="url(#Adobe_OpacityMaskFilter)">
+		<rect y="-3" fill="#FFFFFF" width="48" height="24"/>
+		<rect x="12" y="10" width="2" height="8"/>
+		<rect x="16" y="6" width="6" height="6"/>
+		<rect x="16" y="14" width="8" height="4"/>
+		<polygon points="28,10 28,12 24,12 24,8 32,8 32,10 		"/>
+		<rect x="28" y="12" width="4" height="6"/>
+		<rect x="34" y="15" width="3" height="3"/>
+	</g>
+</mask>
+<g mask="url(#SVGID_1_)">
+	<g>
+		<path fill="#F3E8EE" d="M42,20H4v-1C4,8.523,12.523,0,23,0s19,8.523,19,19V20z"/>
+	</g>
+</g>
+<g>
+	<g>
+		<g>
+			<g>
+				<rect x="16" y="30" fill="#F3E8EE" width="6" height="12"/>
+			</g>
+		</g>
+		<g>
+			<g>
+				<rect x="16" y="26" fill="#F3E8EE" width="6" height="2"/>
+			</g>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<path fill="#F3E8EE" d="M27,62h-8V52h8V62z M21,60h4v-6h-4V60z"/>
+	</g>
+</g>
+<g>
+	<g>
+		<rect x="6" y="50" fill="#F3E8EE" width="6" height="2"/>
+	</g>
+</g>
+<g>
+	<path fill="#F3E8EE" d="M42,66H4V18h38V66z M6,64h34V20H6V64z"/>
+</g>
+<g>
+	<path fill="#F3E8EE" d="M25,76h-6V64h6V76z M21,74h2v-8h-2V74z"/>
+</g>
+<g>
+	<path fill="#F3E8EE" d="M25,80H15v-6h10V80z M17,78h6v-2h-6V78z"/>
+</g>
+<g>
+	<polygon fill="#F3E8EE" points="26,54 30,54 30,49 33,49 33,57 26,57 	"/>
+</g>
+</svg>

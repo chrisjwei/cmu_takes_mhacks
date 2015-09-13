@@ -10,15 +10,27 @@ body{
 	box-shadow: 3px 3px 0px #E9DEE4, 6px 6px 0px #DFD4DA;
 }
 
-#search-bar{
-	width: 378px;
-	color: #0B132B;
-	border-style: solid;
-  border-width: 1px;
-	border-color: #0B132B;
-	padding:10px;
+.selector{
+	width:340px;
 }
 
-.selector{
-	width:400px;
+.select-wrapper{	
+	display: inline-block;
+	float:left;
+}
+
+#submit-charity{
+	margin-left:5px;
+	width:40px;
+	display: inline-block;
+	float:left;
+}
+
+#submit-charity input{
+	background-color: #3C6E71;
+	padding: 9px 10px 7px 10px;
+	font-size:10px;
+	color: white;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
 }

@@ -1,3 +1,22 @@
+$(window).scroll(function() {
+	var scrollTop = $(this).scrollTop();
+	var newTop = Math.max(scrollTop,50)
+	var currTop = $('.robot').position().top;
+	var time = 50;
+	$('.robot').animate({ top: newTop }, time);
+});
+
+$( document ).ready(function() {
+	$("a.article-title").click(function() {
+		$(this).parent().parent().addClass("read");
+	});
+});
+
+
+function updateScrollLocation(){
+	$('#robot-output').scrollTop($('#robot-output')[0].scrollHeight);
+}
+
 function readInput(){
 	var inputMsg = $('#robot-input').val();
 	$('#robot-input').val('');

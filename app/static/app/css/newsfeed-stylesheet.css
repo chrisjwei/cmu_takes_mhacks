@@ -1,22 +1,31 @@
 body{
-	background-color: #0B132B;
+	background-color: #3C6E71;
+}
+
+textarea {
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 }
 
 .container{
   margin-left: auto;
   margin-right: auto;
   width:960px;
-  height:2000px;
 }
 
 .header{
 	height:50px;
-	background-color: #F3E8EE;
+	background-color: #FFFFFF;
 }
 
 .robot{
 	width: 340px;
-	background-color: #F3E8EE;
+	background-color: #F0F0F0;
 	margin-top:5px;
 	float:left;
 	display:inline-block;
@@ -45,13 +54,16 @@ body{
 	border-top-left-radius:10px;
 	border-top-right-radius:10px;
 	border-bottom-right-radius:10px;
+	border: solid;
+	border-width: 1px;
+	border-color:#A0A0A0;
 	height:100px;
 	width:230px;
 	resize: none;
 }
 
 #robot-input{
-	width:228px;
+	width:230px;
 	padding:10px;
 	background-color: white;
 	border: solid;
@@ -69,8 +81,12 @@ body{
 .article{
 	width:575px;
 	padding:10px;
-	background-color: white;
+	background-color: #F0F0F0;
 	margin-top: 5px;
+}
+
+.read{
+	background-color:#E0E0E0 !important;
 }
 
 .article-header{
@@ -83,15 +99,6 @@ body{
 	font-weight: 500;
 	display: inline-block;
 	float:left;
-}
-
-.article-timestamp{
-	color:#0B132B;
-	font-size: 12px;
-	font-weight: 300;
-	letter-spacing: 0.6px;
-	display: inline-block;
-	float:right;
 }
 
 .article-summary{
@@ -108,4 +115,16 @@ body{
 	font-weight: 300;
 	color:#5B5B5B;
 	margin-top: 3px;
+}
+
+
+.footer{
+	height:100px;
+	color:#EEEEEE;
+	width:960px;
+	font-size:12px;
+	font-weight:300;
+	display:inline-block;
+	padding-top:40px;
+	clear:both;
 }

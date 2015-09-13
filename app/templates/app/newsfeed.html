@@ -12,6 +12,7 @@
 <div class='header'>
 	<div class='container'>
 		<a href='/'><img src='/static/app/images/logo-dark.svg'></a>
+		<a href='/about' class='about'>ABOUT</a>
 	</div>
 </div>
 <div class='container'>
@@ -30,7 +31,6 @@
 			<li class='article'>
 				<div class='article-header'>
 					<a href='{{article_object.article.url}}' target="_blank" class='article-title'>{{article_object.article.title}}</a>
-					<div class='article-timestamp'>{{article_object.article.publish_date}}</div>
 				</div>
 				<div class='article-summary'>
 				{% for sentance in article_object.summary %}
@@ -38,6 +38,7 @@
 				{% endfor %}
 				</div>
 				<div class='article-keyword'> 
+				({{article_object.article.publish_date}}) -
 				{% for keyword in article_object.keywords %} 
 					{{keyword}},
 				{% endfor %}
@@ -46,6 +47,8 @@
 			{% endfor %}
 		</ul>
 	</div>
+	<div class='footer'><center> A MHacks6 project by Aatish Nayak, Ariel Rao and Chris Wei (2015)</center></div>
 </div>
+
 </body>
 </html>

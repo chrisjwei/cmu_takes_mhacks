@@ -58,7 +58,6 @@ def filter(request):
 		html = render_to_string('app/newsfeed.html', content)
 		return HttpResponse(html)
 
-
 def newsfeed(request):
 	"""Renders the newsfeed page."""
 	assert isinstance(request, HttpRequest)
@@ -80,15 +79,6 @@ def newsfeed(request):
 	    'app/newsfeed.html', content)
 
 def about(request):
-	"""Renders the about page."""
-	assert isinstance(request, HttpRequest)
-	return render(
-	    request,
-	    'app/about.html',
-	    context_instance = RequestContext(request,
-	    {
-	        'title':'About',
-	        'message':'Your application description page.',
-	        'year':datetime.now().year,
-	    })
-	)
+    """Renders the about page."""
+    assert isinstance(request, HttpRequest)
+    return render(request,'app/about.html');

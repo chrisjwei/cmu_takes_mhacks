@@ -14,7 +14,7 @@ class ParseArticle:
     articleData["url"] = self.url
     articleData["title"] = article.title
     articleData["authors"] = article.authors  # list
-    articleData["publish_data"] = article.publish_date  # date obj?
+    articleData["publish_date"] = article.publish_date  # date obj?
     articleData["text"] = article.text  # unicode
 
     # article.nlp()

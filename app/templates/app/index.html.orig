@@ -11,8 +11,13 @@
 	<title>NewsBot</title>
 </head>
 <body>
+<img src='/static/app/images/logo-icon-white.svg'>
 <div id='main-box' class='centered'>
+<<<<<<< Updated upstream
 	<img src='/static/app/images/logo-dark.svg'>
+=======
+	<img src='/static/app/images/logo-black.svg'>
+>>>>>>> Stashed changes
 	<div class ='font-color-accent-dark font-helper-text'>Show me news about...</div>
 	<div class='select-wrapper'>
 		<select name="charity" form="submit-charity" id="org-selector" class="selector">
