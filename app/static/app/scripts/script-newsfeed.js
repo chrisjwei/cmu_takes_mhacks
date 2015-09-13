@@ -20,16 +20,14 @@ function updateScrollLocation(){
 function readInput(){
 	var inputMsg = $('#robot-input').val();
 	$('#robot-input').val('');
-	$('#robot-output').append(inputMsg + '\n');
 	parseInput(inputMsg);
-	updateScrollLocation();
 }
 
 function parseInput(msg){
 	msg = cleanMsg(msg)
 	var keyword = ''; // only relevant for commandType 2
 	var arr = msg.split(" ");
-	var commandType = getCommandType(arr); // 0 - unknown command, 1 - refresh, 2 - filter
+	var commandType = getCommandType(arr); // 0 - unknown command, 1 - refresh, 2 - filter, 3 -remove filter
 	if (commandType == 2 || commandType == 3){
 		keyword = getKeyword(arr);
 	}
@@ -47,10 +45,12 @@ function getCommandType(arr){
 	var word;
 	for (i = 0; i < arr.length; i++){
 		word = arr[i].toLowerCase();
+
 		/* here are some definitively refresh based words*/
 		if (word == 'refresh' || word == 'reload' || word == 'update' || word == 'restock'){
 			return 1;
 		}
+
 		if (word == 'new' || word == 'update' || word == 'updates' && i > 0){
 			prevWord = arr[i-1].toLowerCase();
 			if (prevWord == 'load' || prevWord == 'show' || prevWord == 'get' || prevWord == 'display' || prevWord == 'me'){
@@ -66,8 +66,11 @@ function getCommandType(arr){
 		if (word == 'remove' && i < arr.length-1 && arr[i+1].toLowerCase() == 'filter'){
 			return 3;
 		}
-		if (word == 'filter' || word == 'where' || word == 'by'){
+		if (word == 'filter' || word == 'by'){
 			return 2;
+		}
+		if (word == 'where') {
+			return 4;
 		}
 		if (i > 0 ) {
 			prevWord = arr[i-1].toLowerCase();
@@ -101,19 +104,33 @@ function execute(commandType,keyword){
 	var output = $('#robot-output');
 	switch(commandType){
 		case 0:
-			output.append("> I don't understand your command :(\n");
+			output.html("I don't understand your command :(");
 			break;
 		case 1:
-			output.append("> Fetching new stories for you\n");
+			output.html("Fetching new stories for you");
 			refresh();
 			break;
 		case 2:
-			output.append("> Applying filter: " + keyword + '\n');
+			output.html("Applying filter: " + keyword);
+
 			applyFilter(keyword);
 			break;
 		case 3:
-			output.append("> Removing filter: " + keyword + '\n');
+			output.html("Removing filter: " + keyword);
 			removeFilter(keyword);
+			break;
+		case 4:
+			output.html("Finding incidents you can help");
+			$.ajax({
+				  url: '/filter',
+				  data: {'type_of_filter' : 'incidents'},
+				  success: function(response) {
+				  		var newDoc = document.open("text/html", "replace");
+				  		console.log(response)
+						newDoc.write(response);
+						newDoc.close();
+				  }
+				});
 			break;
 		default: throw 'Unsupported commandType';
 	}
