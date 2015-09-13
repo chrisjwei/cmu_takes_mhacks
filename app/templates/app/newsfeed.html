@@ -21,9 +21,8 @@
 			<textarea readonly id='robot-output' class='robot-speech-bubble font-text-light'>> Hello there, what can I do for you?
 </textarea>
 		</div>
-		<form onsubmit="readInput();return false;">
-	  	<input id='robot-input' type="text" name="message" placeholder='hello'><br>
-		</form>	
+	  	<input id='robot-input' type="text" placeholder='hello'><br>
+	  	<button onclick="readInput();return false;">Submit</button>
 	</div>
 	<div class='newsfeed'>
 		<ul>
