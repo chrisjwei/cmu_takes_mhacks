@@ -8,6 +8,10 @@ Technology
 ------------------------------
 Powered by Python, Django, MongoDB, Azure Machine Learning, and NLTK.
 
+Recognition
+-----------------------------
+Won American Express Case Competition
+
 Team
 -----------------------------
 ```
